@@ -85,9 +85,10 @@
     border-bottom:2px solid var(--ink);
     overflow:hidden;
   }
-  /* 96px of top padding leaves two empty ruled lines above the content, which
-     eats the fold on a phone. Start one line lower on small screens. */
-  @media (max-width:760px){ .hero{padding:48px 0 56px;} }
+  /* 96px of top padding spans two lines of the ruled background (rules fall at
+     38px and 77px), opening the page with two blank ruled lines. Stay above the
+     first rule on small screens so the content starts straight away. */
+  @media (max-width:760px){ .hero{padding:24px 0 56px;} }
   .hero .wrap{position:relative; z-index:2;}
   .hero::before{
     content:'';
