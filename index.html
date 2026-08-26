@@ -104,13 +104,20 @@
   .log-tag b{color:var(--rust);}
   h1.hero-headline{
     font-size:clamp(48px, 9vw, 108px);
-    line-height:0.92;
+    line-height:1.05;
     max-width:900px;
   }
+  /* Anton's content box is 1.5em tall (ascent 1.18em) while its capitals are only
+     0.86em, so a plain inline background bleeds far above the letters and paints
+     over the line above. Draw the highlight as a fixed-height band anchored to the
+     baseline instead, so it hugs the capitals at any font-size. */
   h1.hero-headline em{
     font-style:normal;
     color:var(--paper);
-    background:var(--rust);
+    background-image:linear-gradient(var(--rust), var(--rust));
+    background-repeat:no-repeat;
+    background-size:100% 1.1em;
+    background-position:left bottom 0.21em;
     padding:0 10px;
     box-decoration-break:clone;
     -webkit-box-decoration-break:clone;
@@ -139,6 +146,7 @@
     border:2px solid var(--ink);
     padding:15px 26px;
     font-size:14px; text-transform:uppercase; letter-spacing:0.08em;
+    text-decoration:none;
     transition:transform .15s ease, background .15s ease;
     transform:rotate(-1deg);
   }
